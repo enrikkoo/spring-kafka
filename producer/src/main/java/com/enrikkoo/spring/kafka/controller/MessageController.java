@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
 @RestController
 @RequestMapping(path = "v1")
 public class MessageController {
@@ -17,7 +20,8 @@ public class MessageController {
     }
 
     @PostMapping(path = "send")
-    public void publish(@RequestBody RequestDto request){
-        kafkaTemplate.send(request.getTopic(),request.getUserId(),request.getMessage());
+    public void publish(@RequestBody RequestDto request) {
+        kafkaTemplate.send(request.getTopic(), request.getUserId(), request.getMessage() + " " + ZonedDateTime.now(ZoneId.of("Europe/Moscow")
+        ));
     }
 }
