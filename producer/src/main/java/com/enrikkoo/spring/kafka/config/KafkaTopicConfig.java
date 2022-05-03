@@ -13,10 +13,4 @@ import java.util.Map;
 @Component
 public class KafkaTopicConfig {
 
-/*    @Bean
-    public KafkaAdmin admin() {
-        Map<String, Object> configs = new HashMap<>();
-        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "pkc-l6wr6.europe-west2.gcp.confluent.cloud:9092");
-        return new KafkaAdmin(configs);
-    }*/
 }

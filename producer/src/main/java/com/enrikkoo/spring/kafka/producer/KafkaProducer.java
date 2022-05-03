@@ -22,6 +22,12 @@ public class KafkaProducer {
     @Value("${spring.kafka.properties.bootstrap.servers}")
     private String BROKER_URL;
 
+    @Value("${confluent.cluster.key}")
+    private String key;
+
+    @Value("${confluent.cluster.secret}")
+    private String secret;
+
     @Bean
     public ProducerFactory<String, String> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
@@ -30,7 +36,8 @@ public class KafkaProducer {
         configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configProps.put(SaslConfigs.SASL_MECHANISM,"PLAIN");
         configProps.put(SaslConfigs.SASL_JAAS_CONFIG, String.format(
-                "%s required username=\"%s\" " + "password=\"%s\";", PlainLoginModule.class.getName(), "", ""
+                "%s required username=\"%s\" " + "password=\"%s\";", PlainLoginModule.class.getName(), "DO6SCQ6QGPXD5V3N",
+                "AEskqkz3gIQhX6PVRrFll+sljIA/3z2HLq+cTPmqUDr/Kkxk75gQJMnX4TNBCXs0e"
         ));
         configProps.put("security.protocol",SecurityProtocol.SASL_SSL.name());
         return new DefaultKafkaProducerFactory<>(configProps);

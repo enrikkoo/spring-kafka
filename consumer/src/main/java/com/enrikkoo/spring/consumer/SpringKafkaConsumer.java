@@ -1,13 +1,13 @@
-package com.enrikkoo.spring.kafka;
+package com.enrikkoo.spring.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringKafkaApplication {
+public class SpringKafkaConsumer {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringKafkaApplication.class, args);
+        SpringApplication.run(SpringKafkaConsumer.class, args);
     }
 
 }
